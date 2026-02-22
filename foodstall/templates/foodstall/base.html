@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Smart Food Stall{% endblock %}</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff8f0;
+            color: #333;
+        }
+
+        /* HEADER */
+        header {
+            background-color: #8B4513;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 26px;
+        }
+
+        /* LOGOUT BUTTON */
+        header button {
+            padding: 6px 14px;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #D2B48C;
+            color: #333;
+            transition: 0.3s;
+        }
+
+        header button:hover {
+            background-color: #CDAA7D;
+        }
+
+        /* NAVBAR */
+        nav {
+            background-color: #F0E68C;
+            padding: 12px 0;
+            text-align: center;
+            box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav a {
+            display: inline-block;
+            margin: 0 8px;
+            padding: 8px 18px;
+            font-size: 15px;
+            text-decoration: none;
+            border-radius: 6px;
+            background-color: #A0522D;
+            color: white;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #8B3E2F;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 30px 20px;
+            min-height: 70vh;
+        }
+
+        .card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .card h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button[type="submit"] {
+            padding: 8px 15px;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #A0522D;
+            color: white;
+            transition: 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #8B3E2F;
+        }
+
+        footer {
+            background-color: #8B4513;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        @media (max-width: 600px) {
+            nav a {
+                margin: 5px;
+                padding: 6px 12px;
+                font-size: 14px;
+            }
+
+            header h1 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h1>Smart Food Stall</h1>
+
+        {% if user.is_authenticated %}
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form>
+        {% endif %}
+    </header>
+
+    <!-- NAVIGATION -->
+    <nav>
+        {% if user.is_authenticated %}
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'place_order' %}">Place Order</a>
+            <a href="{% url 'order_history' %}">Order History</a>
+
+            {% if user.is_staff %}
+                <a href="{% url 'shopkeeper_orders' %}">All Orders</a>
+            {% endif %}
+        {% else %}
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'register' %}">Register</a>
+        {% endif %}
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        &copy; 2026 Smart Food Stall | LPU
+    </footer>
+
+</body>
+</html>

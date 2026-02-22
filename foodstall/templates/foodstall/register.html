@@ -1,0 +1,46 @@
+{% extends "foodstall/base.html" %}
+{% block title %}Register - Smart Food Stall{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>Create an Account</h2>
+
+    {% if form.errors %}
+        <p class="error">Please fix the errors below.</p>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+
+        <div class="form-group">
+            {{ form.username.label_tag }}
+            {{ form.username }}
+            {% if form.username.errors %}
+                <p class="error">{{ form.username.errors.0 }}</p>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            {{ form.password1.label_tag }}
+            {{ form.password1 }}
+            {% if form.password1.errors %}
+                <p class="error">{{ form.password1.errors.0 }}</p>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            {{ form.password2.label_tag }}
+            {{ form.password2 }}
+            {% if form.password2.errors %}
+                <p class="error">{{ form.password2.errors.0 }}</p>
+            {% endif %}
+        </div>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <p style="text-align:center; margin-top: 15px;">
+        Already have an account? <a href="{% url 'login' %}">Login here</a>
+    </p>
+</div>
+{% endblock %}

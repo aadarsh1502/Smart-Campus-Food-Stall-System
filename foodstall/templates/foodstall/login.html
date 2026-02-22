@@ -1,0 +1,23 @@
+{% extends "foodstall/base.html" %}
+{% block title %}Login - Smart Food Stall{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>Login</h2>
+    {% if form.errors %}
+        <p class="error">Invalid username or password.</p>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.username.label_tag }}<br>
+            {{ form.username }}
+        </div>
+        <div class="form-group">
+            {{ form.password.label_tag }}<br>
+            {{ form.password }}
+        </div>
+        <button type="submit">Login</button>
+    </form>
+</div>
+{% endblock %}
