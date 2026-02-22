@@ -1,68 +1,68 @@
-Smart Campus Food Stall System
+🍽️ Smart Campus Food Stall System
 
 A Django-based web application that allows students to pre-order food during campus break hours and helps shopkeepers manage orders efficiently.
 
-This system reduces long queues, improves order management, and streamlines food distribution during peak break times.
+This system reduces long queues ⏳, improves order management 📋, and streamlines food distribution during peak break times.
 
-Project Overview
+📌 Project Overview
 
 During short class breaks, campus food stalls often experience heavy rush. Students waste valuable time waiting in lines, and shopkeepers struggle to handle sudden order spikes.
 
 The Smart Campus Food Stall System solves this problem by allowing:
 
-Students to pre-order food in advance
+🧑‍🎓 Students to pre-order food in advance
 
-Students to select a preferred break time (time slot)
+🕒 Students to select a preferred break time (time slot)
 
-Shopkeepers to view and manage all orders efficiently
+👨‍🍳 Shopkeepers to view and manage all orders efficiently
 
-Features
-Student Features
+✨ Features
+🧑‍🎓 Student Features
 
-User registration and login
+🔐 User registration and login
 
-View available food items
+🍔 View available food items
 
-Select quantity
+🔢 Select quantity
 
-Choose preferred time slot (break timing)
+🕒 Choose preferred break time slot
 
-Place food orders
+🛒 Place food orders
 
-View order history
+📜 View order history
 
-Automatic total price calculation
+💰 Automatic total price calculation
 
-Shopkeeper Features (Admin/Staff Access)
+👨‍🍳 Shopkeeper Features (Admin/Staff Access)
 
-View all placed orders
+📋 View all placed orders
 
-Orders sorted by latest
+⏱ Orders sorted by latest
 
-Manage food item availability
+🧾 Manage food item availability
 
-Manage time slots from Django Admin
+🕒 Manage time slots from Django Admin
 
 Access to shopkeeper dashboard is restricted using Django’s staff_member_required decorator.
 
-Tech Stack
+🛠 Tech Stack
 
-Python
+🐍 Python
 
-Django
+🌐 Django
 
-SQLite
+🗄 SQLite
 
-HTML
+🎨 HTML
 
-Bootstrap
+💅 Bootstrap
 
-Django Authentication System
+🔐 Django Authentication System
 
-Django Admin Panel
+⚙️ Django Admin Panel
 
-Database Models
-TimeSlot
+🗂 Database Models
+🕒 TimeSlot
 
 Stores break timings:
 
@@ -70,7 +70,7 @@ Start time
 
 End time
 
-FoodItem
+🍕 FoodItem
 
 Stores food menu data:
 
@@ -80,7 +80,7 @@ Price
 
 Availability status
 
-Order
+🛒 Order
 
 Stores order details:
 
@@ -95,10 +95,11 @@ Quantity
 Timestamp
 
 Includes a method to calculate total price:
+
 Food price × Quantity
 
-System Workflow
-Student Flow
+🔄 System Workflow
+🧑‍🎓 Student Flow
 
 Register or login
 
@@ -112,7 +113,7 @@ Place order
 
 View order history
 
-Shopkeeper Flow
+👨‍🍳 Shopkeeper Flow
 
 Login as staff/admin user
 
@@ -122,7 +123,7 @@ Prepare orders according to time slots
 
 Manage food items via admin panel
 
-Installation Guide
+🚀 Installation Guide
 
 Clone the repository:
 
@@ -162,35 +163,35 @@ python manage.py runserver
 Open in browser:
 
 http://127.0.0.1:8000/
-Future Improvements
+🔮 Future Improvements
 
-Order status tracking (Pending, Preparing, Ready, Completed)
+📌 Order status tracking (Pending, Preparing, Ready, Completed)
 
-Online payment integration
+💳 Online payment integration
 
-Time-slot order limits
+🚦 Time-slot order limits
 
-Email or SMS notifications
+🔔 Email or SMS notifications
 
-Admin analytics dashboard (sales, peak times, revenue)
+📊 Admin analytics dashboard (sales, peak times, revenue)
 
-Mobile-friendly UI optimization
+📱 Mobile-friendly UI optimization
 
-Learning Outcomes
+📚 Learning Outcomes
 
 This project helped me understand:
 
-Role-based access control in Django
+🧠 Role-based access control in Django
 
-Relational database modeling
+🏗 Relational database modeling
 
-Authentication and user management
+🔐 Authentication and user management
 
-Clean backend logic structuring
+🧩 Clean backend logic structuring
 
-Practical problem-solving using web applications
+💡 Practical problem-solving using web applications
 
-Project Status
+📌 Project Status
 
-Basic functional version completed.
-Future upgrades planned.
+✔ Basic functional version completed
+🚀 Future upgrades planned
